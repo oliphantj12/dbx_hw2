@@ -39,7 +39,7 @@ Emissions were measured with CodeCarbon around model training only and logged to
 | v1_hp_b | 19.0 | 0.0379 | 14.0 |
 
 - **hp_b emitted about 3.6–4.5× more CO₂ than hp_a.** It runs twice the epochs with about half the batch size, so roughly 4× the gradient updates, and training time and emissions grew by about the same factor.
-- **Accuracy vs. carbon trade-off:** on v1, the extra carbon from hp_b bought only about a 0.4% reduction in RMSE. On v2, it made the difference between an unstable model and a good one. hp_b's main benefit is more reliable training, not higher peak accuracy.
+- **Accuracy vs carbon trade-off:** on v1, the extra carbon from hp_b bought only about a 0.4% reduction in RMSE. On v2, it made the difference between an unstable model and a good one. hp_b's main benefit is more reliable training, not higher peak accuracy.
 - **Feature version had little effect on emissions,** since the two datasets are nearly the same size and width.
 - **Caveat:** training ran on Databricks serverless compute, where CodeCarbon can't read hardware power directly. It estimates energy from runtime, an assumed CPU power and the US grid's carbon intensity (about 0.37 kg CO₂/kWh implied). The relative comparisons between runs hold up, but the absolute values are approximate. At this scale (milligrams per run) the totals are small, though in production the same ratios would apply to much larger training jobs and frequent retraining.
 
